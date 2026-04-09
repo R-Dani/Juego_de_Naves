@@ -19,7 +19,7 @@ void gotoxy(int x, int y)
 	SetConsoleCursorPosition(hcon, dwpos);
 }
 
-void OcultarCursor()
+void ocultarCursor()
 {
 	HANDLE hcon;
 	hcon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -32,7 +32,7 @@ void OcultarCursor()
 
 int main()
 {
-	OcultarCursor();
+	ocultarCursor();
 	int x = 10, y = 10;
 	gotoxy(x,y); printf("*");
 
