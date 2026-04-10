@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <conio.h>
 #include <iostream>
+#include "Player.h"
 
 #define up 72
 #define left 75
@@ -29,6 +30,7 @@ void ocultarCursor()
 
 	SetConsoleCursorInfo(hcon, &cci);
 }
+
 
 int main()
 {
