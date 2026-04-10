@@ -35,20 +35,12 @@ void ocultarCursor()
 int main()
 {
 	ocultarCursor();
-	int x = 10, y = 10;
-	gotoxy(x,y); printf("*");
-
+	Player player(7, 7);
+	player.pintar();
 	bool game_over = false;
 	while (!game_over)
 	{
-		char tecla = _getch();
-		gotoxy(x,y); printf(" ");
-		if (tecla == left) x--;
-		if (tecla == right) x++;
-		if (tecla == up) y--;
-		if (tecla == down) y++;
-		gotoxy(x,y); printf("*");
-
+		player.mover();
 	}
 	return 0;
 }

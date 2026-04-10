@@ -1,5 +1,5 @@
 #pragma once
-#include "Nave.cpp"
+
 class Player
 {
 	int x, y;
@@ -10,8 +10,4 @@ public:
 	void mover();
 };
 
-void Player::pintar()
-{
-	gotoxy(x, y);
-}
 
