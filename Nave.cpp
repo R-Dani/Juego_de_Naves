@@ -3,11 +3,7 @@
 #include <conio.h>
 #include <iostream>
 #include "Player.h"
-
-#define up 72
-#define left 75
-#define right 77
-#define down 80
+#include "Nave.h"
 
 void gotoxy(int x, int y)
 {
@@ -30,13 +26,34 @@ void ocultarCursor()
 
 	SetConsoleCursorInfo(hcon, &cci);
 }
+void pintarLimites()
+{
+	for (int i = 2; i<78; i++)
+	{
+		gotoxy(i, 3); printf("%c", 205);
+		gotoxy(i, 33); printf("%c", 205);
+	}
+
+	for (int i = 4; i < 33; i++)
+	{
+		gotoxy(2, i); printf("%c", 186);
+		gotoxy(77, i); printf("%c", 186);
+	}
+
+	gotoxy(2, 3); printf("%c", 201);
+	gotoxy(2, 33); printf("%c", 200);
+	gotoxy(77, 3); printf("%c", 187);
+	gotoxy(77, 33); printf("%c", 188);
+}
 
 
 int main()
 {
 	ocultarCursor();
-	Player player(7, 7);
+	pintarLimites();
+	Player player(7, 7, 3);
 	player.pintar();
+	player.pintarCorazones();
 	bool game_over = false;
 	while (!game_over)
 	{

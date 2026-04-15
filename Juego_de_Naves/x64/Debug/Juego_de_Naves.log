@@ -1,7 +1,2 @@
-﻿  Nave.cpp
-  Player.cpp
-  Generando código...
-Player.obj : error LNK2005: ya se definió "void __cdecl gotoxy(int,int)" (?gotoxy@@YAXHH@Z) en Nave.obj
-Player.obj : error LNK2005: ya se definió "void __cdecl ocultarCursor(void)" (?ocultarCursor@@YAXXZ) en Nave.obj
-Player.obj : error LNK2005: ya se definió main en Nave.obj
-C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\x64\Debug\Juego_de_Naves.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente
+﻿  Player.cpp
+  Juego_de_Naves.vcxproj -> C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\x64\Debug\Juego_de_Naves.exe

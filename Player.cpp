@@ -1,15 +1,20 @@
 #include "Player.h"
-#include "Nave.cpp"
+#include "Nave.h"
 #include <conio.h>
 #include <stdio.h>
 
-Player::Player(int _x, int _y) : x(_x), y(_y) {}
+#define up 72 
+#define left 75 
+#define right 77 
+#define down 80
+
+Player::Player(int _x, int _y, int _corazones) : x(_x), y(_y), corazones(_corazones) {}
 
 void Player::pintar()
 {
-	gotoxy(x, y); printf("  %c", 30);
+	gotoxy(x, y); printf("  %c", 65);
 	gotoxy(x, y + 1); printf(" %c%c%c", 40, 207, 41);
-	gotoxy(x, y + 2); printf("%c%c %c%c", 30, 190, 190, 30);
+	gotoxy(x, y + 2); printf("%c%c %c%c", 60, 190, 190, 62);
 }
 
 void Player::borrar()
@@ -23,9 +28,21 @@ void Player::mover()
 {
 	char tecla = _getch();
 	borrar();
-	if (tecla == left) x--;
-	if (tecla == right) x++;
-	if (tecla == up) y--;
-	if (tecla == down) y++;
+	if (tecla == left && x>3) x--;
+	if (tecla == right && x+5<77) x++;
+	if (tecla == up && y > 4) y--;
+	if (tecla == down && y+3 < 33) y++;
+	if (tecla == 'e') corazones--;
 	pintar();
+	pintarCorazones();
+}
+
+void Player::pintarCorazones()
+{
+	gotoxy(64, 2); printf("Salud");
+	gotoxy(70, 2); printf("       ");
+	for (int  i = 0; i < corazones; i++)
+	{
+		gotoxy(70 + i, 2); printf("%c", 157);
+	}
 }
