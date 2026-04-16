@@ -1,9 +1,11 @@
+#include "Nave.h"
+#include "Asteroide.h"
 #include <stdio.h>
 #include <Windows.h>
 #include <conio.h>
 #include <iostream>
 #include "Player.h"
-#include "Nave.h"
+
 
 void gotoxy(int x, int y)
 {
@@ -51,13 +53,19 @@ int main()
 {
 	ocultarCursor();
 	pintarLimites();
-	Player player(7, 7, 3);
+	Player player(7, 7, 3, 3);
 	player.pintar();
 	player.pintarCorazones();
+
+	Asteroide asteroide(10, 4);
+
 	bool game_over = false;
 	while (!game_over)
 	{
+		asteroide.mover();
+		player.morir();
 		player.mover();
+		Sleep(30);
 	}
 	return 0;
 }
