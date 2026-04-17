@@ -1,2 +1,25 @@
-﻿  Player.cpp
-  Juego_de_Naves.vcxproj -> C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\x64\Debug\Juego_de_Naves.exe
+﻿  Nave.cpp
+C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Nave.cpp(58,12): error C2512: 'Asteroide': no hay disponible un constructor predeterminado adecuado
+      C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Asteroide.h(2,7):
+      vea la declaración de 'Asteroide'
+  
+C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Nave.cpp(67,34): error C2664: 'void Asteroide::choque(Player &)': el argumento 1 no puede convertirse de 'Asteroide' a 'Player &'
+      C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Asteroide.h(9,7):
+      vea la declaración de 'Asteroide::choque'
+      C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Nave.cpp(67,34):
+      al hacer coincidir la lista de argumentos '(Asteroide)'
+  
+C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Nave.cpp(68,34): error C2664: 'void Asteroide::choque(Player &)': el argumento 1 no puede convertirse de 'Asteroide' a 'Player &'
+      C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Asteroide.h(9,7):
+      vea la declaración de 'Asteroide::choque'
+      C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Nave.cpp(68,34):
+      al hacer coincidir la lista de argumentos '(Asteroide)'
+  
+C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Nave.cpp(69,34): error C2664: 'void Asteroide::choque(Player &)': el argumento 1 no puede convertirse de 'Asteroide' a 'Player &'
+      C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Asteroide.h(9,7):
+      vea la declaración de 'Asteroide::choque'
+      C:\Users\roble\Documentos\Proyectos_C\Juego_de_Naves\Nave.cpp(69,34):
+      al hacer coincidir la lista de argumentos '(Asteroide)'
+  
+  Player.cpp
+  Generando código...
