@@ -9,6 +9,7 @@ public:
 	Player(int _x, int _y, int _corazones, int _vidas);
 	int X() { return x; }
 	int Y() { return y; }
+	int vid() { return vidas; }
 	void cor() { corazones--; }
 	void pintar();
 	void borrar();

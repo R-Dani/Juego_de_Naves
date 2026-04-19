@@ -7,5 +7,7 @@ public:
 	void pintar();
 	void mover();
 	void choque(class Player &P);
+	int X() { return x; }
+	int Y() { return y; }
 };
 

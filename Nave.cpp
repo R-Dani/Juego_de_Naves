@@ -57,18 +57,26 @@ int main()
 {
 	ocultarCursor();
 	pintarLimites();
-	Player player(7, 7, 3, 3);
+	Player player(38, 30, 3, 3);
 	player.pintar();
 	player.pintarCorazones();
+	 
+	list<Asteroide*> A;
+	list<Asteroide*>::iterator itA;
 
-	Asteroide asteroide1(10, 4), asteroide2(4, 8), asteroide3(15, 10);
+	for (int i=0; i<5; i++)
+	{
+		A.push_back(new Asteroide(rand() % 75 + 3, rand() % 5 + 4));
+	}
 
 	list<Bala*> B;
 	list<Bala*>::iterator it;
 
 	bool game_over = false;
+	int puntos = 0;
 	while (!game_over)
 	{
+		gotoxy(4, 2); printf("Puntos %d", puntos);
 		if (_kbhit())
 		{
 			char tecla = _getch();
@@ -78,14 +86,46 @@ int main()
 			}
 		}
 
-		for (it = B.begin(); it != B.end(); it++)
+		for (it = B.begin(); it != B.end(); it)
 		{
 			(*it)->mover();
+			if ((*it)->fuera())
+			{
+				gotoxy((*it)->X(), (*it)->Y()); printf(" ");
+				delete(*it);
+				it = B.erase(it);
+			}
+			else it++;
 		}
 
-		asteroide1.mover(); asteroide1.choque(player);
-		asteroide2.mover(); asteroide2.choque(player);
-		asteroide3.mover(); asteroide3.choque(player);
+		for (itA = A.begin(); itA != A.end(); itA++)
+		{
+			(*itA)->mover();
+			(*itA)->choque(player);
+		}
+
+		for (itA = A.begin(); itA != A.end(); itA++)
+		{
+			for (it = B.begin(); it != B.end(); it)
+			{
+				if ((*itA)->X() == (*it)->X() && ((*itA)->Y() + 1 == (*it)->Y() || (*itA)->Y() == (*it)->Y()))
+				{
+					gotoxy((*it)->X(), (*it)->Y()); printf(" ");
+					delete(*it);
+					it = B.erase(it);
+
+					A.push_back(new Asteroide(rand()%74 + 3, 4));
+					gotoxy((*itA)->X(), (*itA)->Y()); printf(" ");
+					delete(*itA);
+					itA = A.erase(itA);
+
+					puntos += 5;
+				}
+				else it++;
+			}
+		}
+
+		if (player.vid() == 0) game_over = true;
 		player.morir();
 		player.mover();
 		Sleep(30);

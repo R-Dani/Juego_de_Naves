@@ -9,6 +9,12 @@
 void Bala::mover()
 {
 	gotoxy(x, y); printf(" ");
-	if (y > 4) y--;
+	y--;
 	gotoxy(x, y); printf("*");
+}
+
+bool Bala::fuera()
+{
+	if (y == 4) return true;
+
 }
