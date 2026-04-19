@@ -1,10 +1,13 @@
 #include "Nave.h"
 #include "Asteroide.h"
 #include "Player.h"
+#include "Bala.h"
 #include <stdio.h>
 #include <Windows.h>
 #include <conio.h>
 #include <iostream>
+#include <list>
+using namespace std;
 
 
 
@@ -60,12 +63,29 @@ int main()
 
 	Asteroide asteroide1(10, 4), asteroide2(4, 8), asteroide3(15, 10);
 
+	list<Bala*> B;
+	list<Bala*>::iterator it;
+
 	bool game_over = false;
 	while (!game_over)
 	{
-		asteroide1.mover(); asteroide1.choque(P);
-		asteroide2.mover(); asteroide2.choque(P);
-		asteroide3.mover(); asteroide3.choque(P);
+		if (_kbhit())
+		{
+			char tecla = _getch();
+			if (tecla == 'a')
+			{
+				B.push_back(new Bala(player.X() + 2, player.Y() - 1));
+			}
+		}
+
+		for (it = B.begin(); it != B.end(); it++)
+		{
+			(*it)->mover();
+		}
+
+		asteroide1.mover(); asteroide1.choque(player);
+		asteroide2.mover(); asteroide2.choque(player);
+		asteroide3.mover(); asteroide3.choque(player);
 		player.morir();
 		player.mover();
 		Sleep(30);

@@ -36,4 +36,4 @@ void Asteroide::choque(class Player& P)
 		x = rand() % 71 + 4;
 		y = 4;
 	}
-}
+}  
